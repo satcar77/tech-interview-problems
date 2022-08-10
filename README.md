@@ -1,5 +1,3 @@
-# Top Interview Questions by Company
-
 **Index** 
 1. [Adobe](#adobe)
 2. [Affirm](#affirm)
@@ -145,6 +143,10 @@ For example, [2, 4, 6, 2, 5] should return 13, since we pick 2, 6, and 5. [5, 1,
 
 9. You are given an array X of floating-point numbers x1, x2, ... xn. These can be rounded up or down to create a corresponding array Y of integers y1, y2, ... yn. 
 Write an algorithm that finds an appropriate Y array with the following properties: 
+- The rounded sums of both arrays should be equal.
+
+- The absolute pairwise difference between elements is minimized. In other words, |x1- y1| + |x2- y2| + ... + |xn- yn| should be as small as possible.
+
 
 10. An 8-puzzle is a game played on a 3 x 3 board of tiles, with the ninth tile missing. The remaining tiles are labeled 1 through 8 but shuffled randomly. Tiles may slide horizontally or vertically into an empty space, but may not be removed from the board. 
 Design a class to represent the board, and find a series of steps to bring the board to the state [[1, 2, 3], [4, 5, 6], [7, 8, None]]. 
@@ -200,7 +202,13 @@ For example, given the numbers [42, 56, 14], return 14.
 Recall that a complete binary tree has every level filled except the last, and the nodes in the last level are filled starting from the left. 
 
 20. Implement a stack API using only a heap. A stack implements the following methods: 
+- push(item), which adds an element to the stack
+- pop(), which removes and returns the most recently added element (or throws an error if there is nothing on the stack)
 Recall that a heap has the following operations: 
+- push(item), which adds a new key to the heap
+
+- pop(), which removes and returns the max value of the heap
+
 
 21. Run-length encoding is a fast and simple method of encoding strings. The basic idea is to represent
 repeated successive characters as a single count and character. For example, the string "AAAABBBCCDAA" would
@@ -223,6 +231,9 @@ Given a k-ary tree, determine whether it is symmetric.
 For example, for the input [1, 2, 3, 10], you should return 7. 
 
 24. Implement a stack that has the following methods: 
+- push(val), which pushes an element onto the stack
+- pop(), which pops off and returns the topmost element of the stack. If there are no elements in the stack, then it should throw an error or return null.
+- max(), which returns the maximum value in the stack currently. If there are no elements in the stack, then it should throw an error or return null.
 Each method should run in constant time. 
 
 25. Given a string, determine whether any permutation of it is a palindrome. 
@@ -282,6 +293,9 @@ preferences = {
 ```
 
 33. Given a pivot x, and a list lst, partition the list into three parts. 
+- The first part contains all elements in lst that are less than x
+- The second part contains all elements in lst that are equal to x
+- The third part contains all elements in lst that are larger than x
 Ordering within a part can be arbitrary. 
 
 34. Given a node in a binary search tree, return the next bigger element, also known as the inorder successor. 
@@ -311,6 +325,12 @@ would take elements 42, 14, -5, and 86.
 
 38. Implement a bit array. 
 A bit array is a space efficient array that holds a value of 1 or 0 at each index. 
+- init(size): initialize the array with size
+
+- set(i, val): updates index at i with val where val is either 1 or 0.
+
+- get(i): gets the value at index i.
+
 
 39. Given a string, find the length of the smallest window that contains every distinct character. Characters may appear more than once in the window. 
 For example, given "jiujitsu", you should return 5, corresponding to the final five letters. 
@@ -342,6 +362,16 @@ gal_preferences = {
 Given N, write a function that returns the number of unique ways you can climb the staircase.
 The order of the steps matters. 
 For example, if N is 4, then there are 5 unique ways: 
+- 1, 1, 1, 1
+
+- 2, 1, 1
+
+- 1, 2, 1
+
+- 1, 1, 2
+
+- 2, 2
+
 
 44. Given an integer k and a string s, find the length of the longest substring that contains at most k distinct characters. 
 For example, given s = "abcba" and k = 2, the longest substring with k distinct characters is "bcb". 
@@ -376,6 +406,8 @@ For example, given the following tree:
 For example, given [-6, 0, 2, 40], you should return 2. Given [1, 5, 7, 8], you should return False. 
 
 50. A Collatz sequence in mathematics can be defined as follows. Starting with any positive integer: 
+- if n is even, the next number in the sequence is n / 2
+- if n is odd, the next number in the sequence is 3n + 1 
 It is conjectured that every such sequence eventually reaches the number 1. Test this conjecture. 
 
 51. Given a binary tree, find a minimum path sum from root to a leaf. 
@@ -524,6 +556,10 @@ Given a column number, return its alphabetical column id. For example, given 1, 
 ### Medium 
 71. Conway's Game of Life takes place on an infinite two-dimensional board of square cells.
 Each cell is either dead or alive, and at each tick, the following rules apply: 
+- Any live cell with less than two live neighbours dies.
+- Any live cell with two or three live neighbours remains living.
+- Any live cell with more than three live neighbours dies.
+- Any dead cell with exactly three live neighbours becomes a live cell.
 A cell neighbours another cell if it is horizontally, vertically, or diagonally adjacent. 
 
 72. Given an undirected graph G, check whether it is bipartite. Recall that a graph is bipartite if its vertices can be divided into two independent sets, U and V, such that no edge connects vertices of the same set. 
@@ -548,6 +584,10 @@ That is, given a string of length N and a pattern of length k, write a program t
 For example, suppose we have the following formula, where the symbol ¬ is used to denote negation: 
 
 79. Create a data structure that performs all the following operations in O(1) time: 
+- plus: Add a key with value 1. If the key already exists, increment its value by one.
+- minus: Decrement the value of a key. If the key's value is currently 1, remove it.
+- get_max: Return a key with the highest value.
+- get_min: Return a key with the lowest value.
 
 80. Sudoku is a puzzle where you're given a partially-filled 9 by 9 grid with digits.
 The objective is to fill the grid with the constraint that every row, column, and
@@ -598,6 +638,12 @@ algorithm to determine how many pairs of the line segments intersect.
 
 88. You have a large array with most of the elements as zero. 
 Use a more space-efficient data structure, SparseArray, that implements the same interface: 
+- init(arr, size): initialize with the original large array and size.
+
+- set(i, val): updates index at i with val.
+
+- get(i): gets the value at index i.
+
 
 89. Given a string of round, curly, and square open and closing brackets, return
 whether the brackets are balanced (well-formed). 
@@ -696,6 +742,10 @@ For example, given k = 2 and the array [5, 2, 4, 0, 1], you should return 3.
 
 106. There is an N by M matrix of zeroes. Given N and M, write a function to count the number of ways of starting at the top-left corner and getting to the bottom-right corner. You can only move right or down. 
 For example, given a 2 by 2 matrix, you should return 2, since there are two ways to get to the bottom-right: 
+- Right, then down
+
+- Down, then right
+
 
 107. A graph is minimally-connected if it is connected and there is no edge that can be removed while still leaving
 the graph connected. For example, any binary tree is minimally-connected. 
@@ -758,6 +808,8 @@ Follow-up: Does your solution work for the following cases: "hello/world:here/",
 121. Given an array of numbers of length N, find both the minimum and maximum using less than 2 * (N - 2) comparisons. 
 
 122. Implement regular expression matching with the following special characters: 
+- . (period) which matches any single character
+- * (asterisk) which matches zero or more of the preceding element
 That is, implement a function that takes in a string and a valid regular expression
 and returns whether or not the string matches the regular expression. 
 
@@ -899,6 +951,10 @@ For example, given A = 3 -> 7 -> 8 -> 10 and B = 99 -> 1 -> 8 -> 10, return the 
 
 142. UTF-8 is a character encoding that maps each symbol to one, two, three, or four bytes. 
 For example, the Euro sign, €, corresponds to the three bytes 11100010 10000010 10101100. The rules for mapping characters are as follows: 
+- For a single-byte character, the first bit must be zero.
+
+- For an n-byte character, the first byte starts with n ones and a zero. The other n - 1 bytes all start with 10.
+
 ```
  Bytes   |           Byte format
 -----------------------------------------------
@@ -950,12 +1006,20 @@ For example, given the array [5, 1, 3, 5, 2, 3, 4, 1], return 5 as the longest s
 150. You are given an N by N matrix of random letters and a dictionary of words. Find the maximum number
 of words that can be packed on the board from the given dictionary. 
 A word is considered to be able to be packed on the board if: 
+- It can be found in the dictionary
+
+- It can be constructed from untaken letters by other words found so far on the board
+
+- The letters are adjacent to each other (vertically and horizontally, not diagonally).
+
 ```
 { 'eat', 'rain', 'in', 'rat' }
 
 ```
 
 151. Implement a PrefixMapSum class with the following methods: 
+- insert(key: str, value: int): Set a given key's value in the map. If the key already exists, overwrite the value.
+- sum(prefix: str): Return the sum of all values of keys that begin with a given prefix.
 For example, you should be able to run the following code: 
 ```
 mapsum.insert("columnar", 3)
@@ -1086,6 +1150,16 @@ For example, given the set [3, 5, 10, 20, 21], you should return [5, 10, 20]. Gi
 166. Given an array of integers, return a new array where each element in the new array is the number of smaller elements to the right of that element
 in the original input array. 
 For example, given the array [3, 4, 9, 6, 1], return [1, 1, 2, 1, 0], since: 
+- There is 1 smaller element to the right of 3
+
+- There is 1 smaller element to the right of 4
+
+- There are 2 smaller elements to the right of 9
+
+- There is 1 smaller element to the right of 6
+
+- There are no smaller elements to the right of 1
+
 
 167. Given a string of words delimited by spaces, reverse the words in string. For example, given "hello world here", return "here world hello" 
 Follow-up: given a mutable string representation, can you perform this operation in-place? 
@@ -1155,6 +1229,14 @@ For example, a puzzle of the form:
 173. On our special chessboard, two bishops attack each other if they share the same diagonal. This includes bishops that have another bishop located between them, i.e. bishops can attack through pieces. 
 You are given N bishops, represented as (row, column) tuples on a M by M chessboard.
 Write a function to count the number of pairs of bishops that attack each other. The ordering of the pair doesn't matter: (1, 2) is considered the same as (2, 1). 
+- (0, 0)
+
+- (1, 2)
+
+- (2, 2)
+
+- (4, 0)
+
 ```
 [b 0 0 0 0]
 [0 0 b 0 0]
@@ -1181,6 +1263,14 @@ For example, given the string "()())()", you should return 1. Given the string "
 178. Implement locking in a binary tree. A binary tree node can be locked or unlocked
 only if all of its descendants or ancestors are not locked. 
 Design a binary tree node class with the following methods: 
+- is_locked, which returns whether the node is locked
+
+- lock, which attempts to lock the node. If it cannot be locked, then it should return false.
+Otherwise, it should lock it and return true.
+
+- unlock, which unlocks the node. If it cannot be unlocked, then it should return false.
+Otherwise, it should unlock it and return true.
+
 
 179. Given a binary search tree and a range [a, b] (inclusive), return the sum of the elements of the binary search tree within the range. 
 For example, given the following tree: 
@@ -1243,6 +1333,10 @@ Given an array, count the number of inversions it has. Do this faster than O(N^2
 
 187. You are given a set of synonyms, such as (big, large) and (eat, consume). Using this set, determine if two sentences with the same number of words are equivalent. 
 For example, the following two sentences are equivalent: 
+- "He wants to eat food."
+
+- "He wants to consume food."
+
 
 188. Given a singly linked list and an integer k, remove the kth last element from the list. k is guaranteed to be smaller than the length of the list. 
 The list is very long, so making more than one pass is prohibitively expensive. 
@@ -1278,9 +1372,21 @@ for h, the maximum value is used.
 ### Hard 
 193. Given an array of integers and a number k, where 1 <= k <= length of the array, compute the maximum values of each subarray of length k. 
 For example, given array = [10, 5, 2, 7, 8, 7] and k = 3, we should get: [10, 7, 8, 8], since: 
+- 10 = max(10, 5, 2)
+
+- 7 = max(5, 2, 7)
+
+- 8 = max(2, 7, 8)
+
+- 8 = max(7, 8, 7)
+
 
 194. Implement an LFU (Least Frequently Used) cache. It should be able to be initialized with a cache size n,
 and contain the following methods: 
+- set(key, value): sets key to value. If there are already n items in the cache and we are adding a new
+item, then it should also remove the least frequently used item. If there is a tie, then the least recently
+used key should be removed.
+- get(key): gets the value at key. If no such key exists, return null.
 Each operation should run in O(1) time. 
 
 195. In a directed graph, each node is assigned an uppercase letter. We define a path's value as the number of most frequently-occurring letter
@@ -1336,10 +1442,21 @@ dir
 
 205. Implement an LRU (Least Recently Used) cache. It should be able to be initialized with a cache size n,
 and contain the following methods: 
+- set(key, value): sets key to value. If there are already n items in the cache and we are adding a new
+item, then it should also remove the least recently used item.
+- get(key): gets the value at key. If no such key exists, return null.
 Each operation should run in O(1) time. 
 
 206. Design a system to crawl and copy all of Wikipedia using a distributed network of machines. 
 More specifically, suppose your server has access to a set of client machines. Your client machines can execute code you have written to access Wikipedia pages, download and parse their data, and write the results to a database. 
+- How will you reach as many pages as possible?
+
+- How can you keep track of pages that have already been visited?
+
+- How will you deal with your client machines being blacklisted?
+
+- How can you update your database when Wikipedia pages are added or updated?
+
 
 207. Implement a file syncing algorithm for two computers over a low-bandwidth network.
 What if we know the files in the two computers are mostly the same? 
@@ -1361,6 +1478,9 @@ M[i2, j2].
 For example, given that W is "ab", and S is "abxaba", return 0, 3, and 4. 
 
 210. A quack is a data structure combining properties of both stacks and queues. It can be viewed as a list of elements written left to right such that three operations are possible: 
+- push(x): add a new item x to the left end of the list
+- pop(): remove and return the item on the left end of the list
+- pull(): remove the item on the right end of the list.
 Implement a quack using three stacks and O(1) additional memory, so that the amortized time for any push, pop, or pull operation is O(1). 
 
 211. The game of Nim is played as follows. Starting with three heaps, each containing a variable number of items, two players take turns removing one or more items from a single pile. The player who eventually is forced to take the last stone loses. For example, if the initial heap sizes are 3, 4, and 5, a game could be played as shown below: 
@@ -1405,6 +1525,9 @@ MAPTPTMTPA
 For example, given 'waterrfetawx' and a k of 2, you could delete f and x to get 'waterretaw'. 
 
 217. Implement a key value store, where keys and values are integers, with the following methods: 
+- update(key, vl): updates the value at key to val, or sets it if doesn't exist
+- get(key): returns the value with key, or None if no such value exists
+- max_key(val): returns the largest key with value val, or None if no key with that value exists
 For example, if we ran the following calls: 
 ```
 kv.update(1, 1)
@@ -1450,6 +1573,8 @@ For example, given "aaabbc", you could return "ababac". Given "aaab", return Non
 
 ### Easy 
 224. Given integers M and N, write a program that counts how many positive integer pairs (a, b) satisfy the following conditions: 
+- a + b = M
+- a XOR b = N
 
 225. The United States uses the imperial system of weights and measures, which means that there are many different, seemingly arbitrary units to measure distance. There are 12 inches in a foot, 3 feet in a yard, 22 yards in a chain, and so on. 
 Create a data structure that can efficiently convert a certain quantity of one unit to the correct amount of any other unit. You should also allow for additional units to be added to the system. 
@@ -1511,7 +1636,20 @@ must be greater than or equal to the root.
 For example, suppose C = {0, 1} and k = 3. Then our sequence should contain the substrings {'000', '001', '010', '011', '100', '101', '110', '111'}, and one possible solution would be 00010111. 
 
 235. Given a string, return whether it represents a number. Here are the different kinds of numbers: 
+- "10", a positive integer
+- "-10", a negative integer
+- "10.1", a positive real number
+- "-10.1", a negative real number
+- "1e5", a number in scientific notation
 And here are examples of non-numbers: 
+- "a"
+
+- "x 1"
+
+- "a -2"
+
+- "-"
+
 
 236. Given a list of points, a central point, and an integer k, find the nearest k points from the central point. 
 For example, given the list of points [(0, 0), (5, 4), (3, 1)], the central point (1, 2), and k = 2, return
@@ -1519,6 +1657,12 @@ For example, given the list of points [(0, 0), (5, 4), (3, 1)], the central poin
 
 237. You are given a binary tree in a peculiar string representation. Each node is written in the form (lr), where l corresponds to the left child and r corresponds to the right child. 
 If either l or r is null, it will be represented as a zero. Otherwise, it will be represented by a new (lr) pair. 
+- A root node with no children: (00)
+
+- A root node with two children: ((00)(00))
+
+- An unbalanced tree with three consecutive left children: ((((00)0)0)0)
+
 
 
 ## Lyft 
@@ -1532,6 +1676,10 @@ For example, if the list is [1, 2, 3, 4, 5] and K is 9, then it should return [2
 
 ### Hard 
 239. Blackjack is a two player card game whose rules are as follows: 
+- The player and then the dealer are each given two cards.
+- The player can then "hit", or ask for arbitrarily many additional cards, so long as their total does not exceed 21.
+- The dealer must then hit if their total is 16 or lower, otherwise pass.
+- Finally, the two compare totals, and the one with the greatest sum not exceeding 21 is the winner.
 For this problem, cards values are counted as follows: each card between 2 and 10 counts as their face value, face cards count as 10, and aces count as 1. 
 
 
@@ -1546,6 +1694,9 @@ For example, given the array [3, 7, 8, 3, 6, 1], you should return 3, since the 
 
 ### Easy 
 241. You are given an string representing the initial conditions of some dominoes. Each element can take one of three values: 
+- L, meaning the domino has just been pushed to the left,
+- R, meaning the domino has just been pushed to the right, or
+- ., meaning the domino is standing still.
 Determine the orientation of each tile when the dominoes stop falling. Note that if a domino receives a force from the left and right side simultaneously, it will remain upright. 
 
 242. Compute the running median of a sequence of numbers. That is, given a stream of numbers,
@@ -1586,6 +1737,8 @@ graph = [
 Bonus: When, during the course of a day, will the angle be zero? 
 
 247. Implement a URL shortener with the following methods: 
+- shorten(url), which shortens the url into a six-character alphanumeric string, such as zLg6wl.
+- restore(short), which expands the shortened string into the original url. If no such shortened string exists, return null.
 Hint: What if we enter the same URL twice? 
 
 248. Print the nodes in a binary tree level-wise. For example, the following should print 1, 2, 3, 4, 5. 
@@ -1651,6 +1804,9 @@ Given the root to such a tree, write a function to evaluate it.
 
 ### Medium 
 255. Describe and give an example of each of the following types of polymorphism: 
+- Ad-hoc polymorphism
+- Parametric polymorphism
+- Subtype polymorphism
 
 256. Given an unsorted array of integers, find the length of the longest consecutive elements sequence. 
 For example, given [100, 4, 200, 1, 3, 2], the longest consecutive element sequence is [1, 2, 3, 4]. Return its length: 4. 
@@ -1780,6 +1936,8 @@ We can consider a sentence valid if it conforms to the following rules:
 Do this in O(log N) time. 
 
 275. A Cartesian tree with sequence S is a binary tree defined by the following two properties: 
+- It is heap-ordered, so that each parent value is strictly less than that of its children.
+- An in-order traversal of the tree produces nodes with values that correspond exactly to S.
 For example, given the sequence [3, 2, 6, 1, 9], the resulting Cartesian tree would be: 
 ```
       1
@@ -1842,12 +2000,20 @@ For details on how each piece moves, see here.
 ### Easy 
 283. Given a positive integer N, find the smallest number of steps it will take to reach 1. 
 There are two kinds of permitted steps: 
+- You may decrement N to N - 1.
+
+- If a * b = N, you may decrement N to the larger of a and b.
+
 
 
 ## Palantir 
 
 ### Easy 
 284. A typical American-style crossword puzzle grid is an N x N matrix with black and white squares, which obeys the following rules: 
+- Every white square must be part of an "across" word and a "down" word.
+- No word can be fewer than three letters long.
+- Every white square must be reachable from every other white square.
+- The grid is rotationally symmetric (for example, the colors of the top left and bottom right squares must match).
 Write a program to determine whether a given matrix qualifies as a crossword grid. 
 
 285. The ancient Egyptians used to express fractions as a sum of several terms where each numerator is one. For example, 4 / 13 can be represented as 1 / 4 + 1 / 18 + 1 / 468. 
@@ -1956,6 +2122,8 @@ orders before dropping them off. The timestamp is in unix epoch seconds.
 
 ### Hard 
 302. You are presented with an array representing a Boolean expression. The elements are of two kinds: 
+- T and F, representing the values True and False.
+- &, |, and ^, representing the bitwise operators for AND, OR, and XOR.
 Determine the number of ways to group the array elements using parentheses so that the entire expression evaluates to True. 
 
 
@@ -1999,6 +2167,9 @@ Suppose you are given a list of meanings for several words, formatted like so:
 ### Easy 
 307. Design and implement a HitCounter class that keeps track of requests (or hits).
 It should support the following operations: 
+- record(timestamp): records a hit that happened at timestamp
+- total(): returns the total number of hits recorded
+- range(lower, upper): returns the number of hits that occurred between timestamps lower and upper (inclusive)
 Follow-up: What if our system has limited memory? 
 
 
@@ -2021,7 +2192,15 @@ If only one input tree has a node in a given position, the corresponding node in
 
 ### Medium 
 310. The number 6174 is known as Kaprekar's contant, after the mathematician who discovered an associated property: for all four-digit numbers with at least two distinct digits, repeatedly applying a simple procedure eventually results in this value. The procedure is as follows: 
+- For a given input x, create two new numbers that consist of the digits in x in ascending and descending order.
+- Subtract the smaller number from the larger number.
 For example, this algorithm terminates in three steps when starting from 1234: 
+- 4321 - 1234 = 3087
+
+- 8730 - 0378 = 8352
+
+- 8532 - 2358 = 6174
+
 
 ### Hard 
 311. Connect 4 is a game where opponents take turns dropping red or black discs into a 7 x 6 vertically suspended grid. The game ends either when one player creates a line of four consecutive discs of their color (horizontally, vertically, or diagonally), or when there are no more spots left in the grid. 
@@ -2050,6 +2229,10 @@ For example, the input could be 'niesevehrtfeev', which is an anagram of 'threef
 ### Medium 
 315. You are given an N by M matrix of 0s and 1s. Starting from the top left corner, how many ways are there to reach the bottom right corner? 
 You can only move right and down. 0 represents an empty space while 1 represents a wall you cannot walk through. 
+- Right, down, down, right
+
+- Down, right, down, right
+
 ```
 [[0, 0, 1],
  [0, 0, 1],
@@ -2119,7 +2302,22 @@ paths = {
 ```
 
 327. Given a list of words, return the shortest unique prefix of each word. For example, given the list: 
+- dog
+- cat
+- apple
+- apricot
+- fish
 Return the list: 
+- d
+
+- c
+
+- app
+
+- apr
+
+- f
+
 
 328. You are given a histogram consisting of rectangles of different heights. These heights are represented in an input list, such that [1, 3, 2, 5] corresponds to the following diagram: 
 Determine the area of the largest rectangle that can be formed only from the bars of the histogram. For the diagram above, for example, this would be six, representing the 2 x 3 area at the bottom right. 
@@ -2162,6 +2360,8 @@ add_subtract(-5)(10)(3)(9) -> -5 + 10 - 3 + 9 -> 11
 
 ### Medium 
 333. Pascal's triangle is a triangular array of integers constructed with the following formula: 
+- The first row consists of the number 1.
+- For each subsequent row, each element is the sum of the numbers directly above it, on either side.
 For example, here are the first few rows: 
 ```
     1
@@ -2214,6 +2414,10 @@ def sum(lst):
 
 338. Write a map implementation with a get function that lets you retrieve the value of a key at a particular time. 
 It should contain the following methods: 
+- set(key, value, time): sets key to value for t = time.
+
+- get(key, time): gets the key at t = time.
+
 ```
 d.set(1, 1, 0) # set key 1 to value 1 at time 0
 d.set(1, 2, 2) # set key 1 to value 2 at time 2
@@ -2243,6 +2447,8 @@ An element is considered a peak if it is greater than both its left and right ne
 
 ### Medium 
 342. Implement a data structure which carries out the following operations without resizing the underlying array: 
+- add(value): Add a value to the set of values.
+- check(value): Check whether a value is in the set.
 The check method may return occasional false positives (in other words, incorrectly identifying an element as part of the set), but should always correctly identify a true element. 
 
 343. You are given n numbers as well as n probabilities that sum up to 1. Write a function
@@ -2279,6 +2485,8 @@ For example, given the array ["a", "b", "c"] and the permutation [2, 1, 0], retu
 
 347. You run an e-commerce website and want to record the last N order ids in a log.
 Implement a data structure to accomplish this, with the following API: 
+- record(order_id): adds the order_id to the log
+- get_last(i): gets the ith last element from the log. i is guaranteed to be smaller than or equal to N.
 You should be as efficient with time and space as possible. 
 
 348. The 24 game is played as follows. You are given a list of four integers, each between 1 and 9, in a fixed order. By placing the operators +, -, *, and / between the numbers, and grouping them with parentheses, determine whether it is possible to reach the value 24. 
@@ -2315,6 +2523,8 @@ For example, given the query string de and the set of strings [dog, deer, deal],
 
 ### Hard 
 354. You are given an array of length 24, where each element represents the number of new subscribers during the corresponding hour. Implement a data structure that efficiently supports the following: 
+- update(hour: int, value: int): Increment the element at index hour by value.
+- query(start: int, end: int): Retrieve the number of subscribers that have signed up between start and end (inclusive).
 You can assume that all values get cleared at the end of the day, and that you will not be asked for start and end values that wrap around midnight. 
 
 355. Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
@@ -2369,6 +2579,11 @@ complexity of your solution?
 
 ### Hard 
 362. Ghost is a two-person word game where players alternate appending letters to a word. The first person who spells out a word, or creates a prefix for which there is no possible continuation, loses. Here is a sample game: 
+- Player 1: g
+- Player 2: h
+- Player 1: o
+- Player 2: s
+- Player 1: t [loses]
 Given a dictionary of words, determine the letters the first player should start with, such that with optimal play they cannot lose. 
 
 363. A knight is placed on a given square on an 8 x 8 chessboard. It is then moved randomly several times, where each move is a standard knight move. If the knight jumps off the board at any point, however, it is not allowed to jump back on. 
@@ -2397,6 +2612,12 @@ For example, given k = 18 and the following binary tree:
 ### Medium 
 367. Write a program that determines the smallest number of perfect squares that sum up to N. 
 Here are a few examples: 
+- Given N = 4, return 1 (4)
+
+- Given N = 17, return 2 (16 + 1)
+
+- Given N = 18, return 2 (9 + 9)
+
 
 368. Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand. Find the minimum element in O(log N) time. You may assume the array does not contain duplicates. 
 For example, given [5, 7, 10, 3, 4], return 3. 
@@ -2411,10 +2632,16 @@ For example, suppose the input for a three-by-six grid is the following:
 ```
 
 370. Implement a 2D iterator class. It will be initialized with an array of arrays, and should implement the following methods: 
+- next(): returns the next element in the array of arrays. If there are no more elements, raise an exception.
+- has_next(): returns whether or not the iterator still has elements left.
 For example, given the input [[1, 2], [3], [], [4, 5, 6]], calling next() repeatedly should output 1, 2, 3, 4, 5, 6. 
 
 371. One way to unlock an Android phone is through a pattern of swipes across a 1-9 keypad. 
 For a pattern to be valid, it must satisfy the following: 
+- All of its keys must be distinct.
+
+- It must not connect two keys by jumping over a third key, unless that key has already been used.
+
 
 ### Hard 
 372. A rule looks like this: 
@@ -2475,6 +2702,8 @@ For example, suppose you are faced with an input of [0, 1, 1, 0, 1, 0, 0, 0, 1],
 
 ### Easy 
 378. You are given a 2 x N board, and instructed to completely cover the board with the following shapes: 
+- Dominoes, or 2 x 1 rectangles.
+- Trominoes, or L-shapes.
 For example, if N = 4, here is one possible configuration, where A is a domino, and B and C are trominoes. 
 ```
 A B B C
@@ -2536,6 +2765,12 @@ For example, given [6, 2, 4, 0, 5, 1, 1, 4, 2, 9], you should return 2, as the o
 
 387. The horizontal distance of a binary tree node describes how far left or right the node will be when the tree is printed out. 
 More rigorously, we can define it as follows: 
+- The horizontal distance of the root is 0.
+
+- The horizontal distance of a left child is hd(parent) - 1.
+
+- The horizontal distance of a right child is hd(parent) + 1.
+
 ```
              5
           /     \
@@ -2576,6 +2811,12 @@ Given a binary tree and a particular node, find all cousins of that node.
 
 391. A ternary search tree is a trie-like data structure where each node may have up to three children. Here is an example which represents the words code, cob, be, ax, war, and we. 
 The tree is structured according to the following rules: 
+- left child nodes link to words lexicographically earlier than the parent prefix
+
+- right child nodes link to words lexicographically later than the parent prefix
+
+- middle child nodes continue the current word
+
 ```
        c
     /  |  \
